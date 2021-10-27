@@ -4,7 +4,7 @@ const Journal = require('./models/journal')
 const methodOverride = require('method-override')
 const journalSeed =  require('./models/seed.js')
 
-const PORT = 3000
+const PORT = process.env.PORT
 const app = express();
 require('dotenv').config()
 app.use(express.urlencoded({extended:true}));
