@@ -12,9 +12,15 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
 
+app.get('/', (req, res) => {
+    res.redirect('/journal')
+
+})
+
 app.get('/journal/new', (req, res) => {
     res.render('new.ejs')
 });
+
 
 app.post('/journal', (req, res) => {
     Journal.create(req.body, (error, adedJournal) => {
