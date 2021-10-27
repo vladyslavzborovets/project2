@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>New Listing</title>
+    <style>
+    .container {
+        text-align: center;
+        font-size: 32px;
+        font-family: monospace;
+        color: white;
+    }
+    h1 {
+        font-family: cursive;
+        text-align: center;
+        font-size: 62px;
+    }
+
+    input[type="submit"] {
+        background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+        font-size: 24px;
+    }
+
+    body {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: top;
+        background-image:url(http://bit.ly/2gPLxZ4);
+        width: 100%;
+        height: 100%;
+        font-family: Arial, Helvetica;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+        color: lightyellow;
+    }
+
+</style>
+
+<h1> New Listing </h1>
+
+</head>
+<body>
+    <div class="container">
+        <form action="/journal" method="POST">
+            Name: <input type="text" name="name"><br/>
+            Image: <input type="text" name="img" ><br/>
+            Description: <input type="text" name="description"><br/>
+            TouristAtractions: </br>
+            <% for (let i = 0; i < 3; i++) { %>
+                Title:<input type="text" name="touristAtractions[<%=i%>][title]"><br/>
+                Image:<input type="text" name="touristAtractions[<%=i%>][img]"><br/>
+                Description: <input type="text" name="touristAtractions[<%=i%>][description]"><br/>
+
+                <%}%>
+                <input type="submit" value="Create Journal"><br/>
+                <a href="/journal"> Back to main page</a>
+            </form>
+
+        </body>
+        </html>

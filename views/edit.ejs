@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Listing</title>
+    <style>
+        form {
+            text-align: center;
+            font-size: 42px;
+            font-style: oblique;
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: red;
+            font-size: 22px;
+        }
+
+        input[type="text"] {
+            background-color: red;
+            font-size: 22px;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+        }
+
+        a {
+            color: lightyellow;
+            font-size: 42px;
+
+        }
+        body {
+            background-image: url('https://thumbs.dreamstime.com/b/sea-water-ocean-wave-surfing-surface-colorful-vibrant-sunset-barrel-shape-124362369.jpg');
+            background-size: cover;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1> Edit Listing </h1>
+    <div class="container">
+        <form action="/journal/<%=journal.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=journal.name %>"><br/>
+            Image: <input type="text" name="img" value="<%=journal.img%>"><br/>
+            Description: <input type="text" name="description" value="<%=journal.description%>"><br/>
+            TouristAtractions: </br>
+            <% for (let i = 0; i < journal.touristAtractions.length; i++) { %>
+                Title:<input type="text" name="touristAtractions[<%=i%>][title]" value="<%=journal.touristAtractions[i].title%>"><br/>
+                Image:<input type="text" name="touristAtractions[<%=i%>][img]" value="<%=journal.touristAtractions[i].img%>"><br/>
+                Description: <input type="text" name="touristAtractions[<%=i%>][description]" value="<%=journal.touristAtractions[i].description%>"><br/>
+
+                <%}%>
+                <input type="submit" value="Update listing">
+
+            </form>
+            <a href="/journal">Back To Main Page</a>
+        </div>
+
+    </body>
+    </html>

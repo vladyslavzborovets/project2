@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>List of Top Places</title>
+    <style>
+    ul {
+        font-style: italic;
+        font-size: 32px;
+        color: black;
+        font-weight: bold;
+
+    }
+
+    h1 {
+        font-size: 42px;
+        text-align: center;
+        color: White;
+    }
+
+    a {
+        font-size: 34px;
+        color: white    ;
+    }
+
+    img {
+        height: 600px;
+        width: 800px;
+    }
+
+    body {
+        text-align: center;
+        background: rgb(20,20,20);
+background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(205,44,44,1) 0%, rgba(108,36,36,1) 96%, rgba(207,59,59,0) 98%, rgba(15,15,15,1) 100%, rgba(235,34,34,1) 100%, rgba(58,25,25,1) 100%, rgba(255,255,255,1) 100%);
+
+    }
+
+    ul {
+        list-style-type: none;
+        color: lightyellow;
+    }
+    </style>
+</head>
+<body>
+    <h1> Journal Show Page </h1>
+    <%JSON.stringify(journal)%>
+    <ul>
+        <% for(let i = 0; i < journal.touristAtractions.length; i ++) { %>
+            <img src="<%=journal.touristAtractions[i].img%>"/>
+            <li>
+                <%=journal.touristAtractions[i].title%>
+                <%=journal.touristAtractions[i].description%>
+            </li>
+            <%}%>
+        </ul>
+        <nav>
+            <form action="/journal/<%=journal.id%>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE"/><br/>
+                </form>
+                <a href="/journal/<%=journal.id%>/edit">Edit page</a><br/>
+                <a href="/journal">Back To Main Menu</a>
+
+
+            </nav>
+
+        </body>
+        </html>
