@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 const Journal = require('./models/journal')
 const methodOverride = require('method-override')
 const journalSeed =  require('./models/seed.js')
+require('dotenv').config()
 
 const PORT = process.env.PORT
 const app = express();
-require('dotenv').config()
+
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
@@ -75,6 +76,6 @@ app.listen(PORT, () =>  {
     console.log(`I'm listening`);
 })
 
-mongoose.connect(process.env.DATABASE_URL, () => {
+mongoose.connect(process.env.MONGODB_URI, () => {
     console.log('connected to mongod');
 });
